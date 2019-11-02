@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={null}>
-        <Flex sx={{m: 4, justifyContent: 'space-between'}}>
+        <Flex sx={{m: [3, 3, 4], justifyContent: 'space-between'}}>
           <Heading as="h2"> Pokemons </Heading>
           <Flex sx={{alignItems: 'center'}}>
             <Select

@@ -9,7 +9,7 @@ import PokeCard from './PokeCard';
 export default function PokeDex({source}) {
   const pokemons = source.pokemons.read();
   return (
-    <Grid m={4} columns={[2, 2, 4]} gap={4}>
+    <Grid m={[2, 3, 4]} columns={[2, 2, 4]} gap={[2, 3, 4]}>
       <SuspenseList revealOrder="forwards">
         {pokemons.map(pokemon => {
           return (
