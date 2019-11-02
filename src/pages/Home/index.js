@@ -19,45 +19,43 @@ export default function Home() {
   });
 
   return (
-    <>
-      <Suspense fallback={null}>
-        <Flex sx={{m: [3, 3, 4], justifyContent: 'space-between'}}>
-          <Heading as="h2"> Pokemons </Heading>
-          <Flex sx={{alignItems: 'center'}}>
-            <Select
-              value={limit}
-              sx={{width: '4rem'}}
-              onChange={e => {
-                startTransition(() => {
-                  const newLimit = Number(e.target.value);
-                  setLimit(newLimit);
-                  setSource(fetchPokeData({limit: newLimit, offset}));
-                });
-              }}
-              bg="#fff"
-              mx={2}
-              name="per">
-              <option value={20}>20</option>
-              <option value={40}>40</option>
-              <option value={60}>60</option>
-              <option value={80}>80</option>
-              <option value={100}>100</option>
-            </Select>
-            <Button
-              disabled={isPending}
-              onClick={() => {
-                startTransition(() => {
-                  const newOffset = offset + limit;
-                  setOffset(newOffset);
-                  setSource(fetchPokeData({limit, offset: newOffset}));
-                });
-              }}>
-              Next Page {isPending ? '(Loading...)' : ''}
-            </Button>
-          </Flex>
+    <Suspense fallback={null}>
+      <Flex sx={{m: [3, 3, 4], justifyContent: 'space-between'}}>
+        <Heading as="h2"> Pokemons </Heading>
+        <Flex sx={{alignItems: 'center'}}>
+          <Select
+            value={limit}
+            sx={{width: '4rem'}}
+            onChange={e => {
+              startTransition(() => {
+                const newLimit = Number(e.target.value);
+                setLimit(newLimit);
+                setSource(fetchPokeData({limit: newLimit, offset}));
+              });
+            }}
+            bg="#fff"
+            mx={2}
+            name="per">
+            <option value={20}>20</option>
+            <option value={40}>40</option>
+            <option value={60}>60</option>
+            <option value={80}>80</option>
+            <option value={100}>100</option>
+          </Select>
+          <Button
+            disabled={isPending}
+            onClick={() => {
+              startTransition(() => {
+                const newOffset = offset + limit;
+                setOffset(newOffset);
+                setSource(fetchPokeData({limit, offset: newOffset}));
+              });
+            }}>
+            Next Page {isPending ? '(Loading...)' : ''}
+          </Button>
         </Flex>
-        <PokeDex source={source} />
-      </Suspense>
-    </>
+      </Flex>
+      <PokeDex source={source} />
+    </Suspense>
   );
 }

@@ -1,5 +1,6 @@
-export function fetchPokeData({limit = 20, offset = 0} = {}) {
+export function fetchPokeData({limit = 21, offset = 0} = {}) {
   let pokemonsPromise = fetchPokemons({limit, offset});
+
   return {
     pokemons: wrapPromise(pokemonsPromise),
   };
