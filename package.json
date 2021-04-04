@@ -8,7 +8,7 @@
     "@theme-ui/components": "^0.2.46",
     "react": "^0.0.0-experimental-f6b8d31a7",
     "react-content-loader": "^4.3.2",
-    "react-dom": "^0.0.0-experimental-f6b8d31a7",
+    "react-dom": "^0.14.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "theme-ui": "^0.2.46"
